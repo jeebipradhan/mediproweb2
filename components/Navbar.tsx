@@ -30,7 +30,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <Link href="/" className="flex-shrink-0 flex items-center">
               <Image
-                //src="MediPro.jpg"
+                src="/images/MediPro.jpg"
                 alt="MediPro Logo"
                 width={40}
                 height={40}
