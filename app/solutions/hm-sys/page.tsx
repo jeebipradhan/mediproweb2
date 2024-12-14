@@ -11,7 +11,7 @@ export default function HMSysPage() {
           </CardHeader>
           <CardContent>
             <p className="text-gray-600">
-              HM-Sys is an abbreviation of Hospital Management System.
+            HM-Sys is an abbreviation of Hospital Management System. This is the Windows desktop version of eMediPro with almost the same features.
             </p>
           </CardContent>
         </Card>

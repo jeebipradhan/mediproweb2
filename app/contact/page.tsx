@@ -7,9 +7,9 @@ import { MapPin, Phone, Mail, User } from 'lucide-react'
 const offices = [
   {
     name: "Kathmandu Head Office",
-    address: "Putalisadak, Komal Complex, Shankar Dev Chowk, Opposite Old Kumari Bank, Kathmandu.",
+    address: "Komal Complex, Putalisadak, 1588 Ramshah Path, Kathmandu.",
     phone: "01-5970-396",
-    email: ["medipro@mediprocomputers.com", "medipro.computers@gmail.com"],
+    email: ["medipro@mediprocomputers.com"],
   },
 ]
 
@@ -110,32 +110,8 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* Contact Form */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Send Us a Message</h2>
-          <Card>
-            <CardContent className="pt-6">
-              <form className="space-y-4">
-                <div>
-                  <Input type="text" placeholder="Your Name" />
-                </div>
-                <div>
-                  <Input type="email" placeholder="Your Email" />
-                </div>
-                <div>
-                  <Input type="tel" placeholder="Your Phone" />
-                </div>
-                <div>
-                  <Textarea placeholder="Your Message" />
-                </div>
-                <Button type="submit" className="w-full">Send Message</Button>
-              </form>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Map */}
-        <div>
+       {/* Map */}
+        <div className="mt-12">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Location</h2>
           <Card>
             <CardContent className="p-0">

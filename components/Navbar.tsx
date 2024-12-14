@@ -11,7 +11,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
-import { Login } from './Login'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -68,10 +67,10 @@ const Navbar = () => {
                   <Link href="/resources/videos" className="w-full">Videos</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Link href="/resources/downloads" className="w-full">Downloads</Link>
+                  <Link href="/cms" className="w-full">CMS</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Link href="/resources/customers" className="w-full">Customers</Link>
+                  <Link href="https://mediprocomputers.com/Download/Index" className="w-full" target="_blank" rel="noopener noreferrer">Downloads</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -98,21 +97,6 @@ const Navbar = () => {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-            <Login onLogin={handleLogin} isLoggedIn={isLoggedIn} username={username} />
-            <Button
-              variant="ghost"
-              className={`ml-4 ${isLoggedIn ? 'text-gray-700' : 'text-gray-400 cursor-not-allowed'}`}
-              disabled={!isLoggedIn}
-            >
-              Licenses
-            </Button>
-            <Button
-              variant="ghost"
-              className={`ml-4 ${isLoggedIn ? 'text-gray-700' : 'text-gray-400 cursor-not-allowed'}`}
-              disabled={!isLoggedIn}
-            >
-              CMS
-            </Button>
           </div>
           <div className="-mr-2 flex items-center sm:hidden">
             <button
@@ -158,23 +142,6 @@ const Navbar = () => {
               <Link href="/about/news" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 ml-4">News</Link>
               <Link href="/about/team" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 ml-4">Team</Link>
               <Link href="/about/event" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 ml-4">Event</Link>
-            </div>
-            <div className="flex flex-col space-y-2">
-              <Login onLogin={handleLogin} isLoggedIn={isLoggedIn} username={username} />
-              <Button
-                variant="ghost"
-                className={`w-full justify-start ${isLoggedIn ? 'text-gray-700' : 'text-gray-400 cursor-not-allowed'}`}
-                disabled={!isLoggedIn}
-              >
-                Licenses
-              </Button>
-              <Button
-                variant="ghost"
-                className={`w-full justify-start ${isLoggedIn ? 'text-gray-700' : 'text-gray-400 cursor-not-allowed'}`}
-                disabled={!isLoggedIn}
-              >
-                CMS
-              </Button>
             </div>
           </div>
         </div>
