@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ChevronDown } from 'lucide-react'
@@ -10,17 +9,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Button } from "@/components/ui/button"
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [username, setUsername] = useState('')
-
-  const handleLogin = (success: boolean, loggedInUsername: string) => {
-    setIsLoggedIn(success)
-    setUsername(loggedInUsername)
-  }
 
   return (
     <nav className="bg-white shadow-lg">
@@ -66,9 +56,13 @@ const Navbar = () => {
                 <DropdownMenuItem>
                   <Link href="/resources/videos" className="w-full">Videos</Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link href="/cms" className="w-full">CMS</Link>
-                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none">
+                Download <ChevronDown className="inline-block ml-1 h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
                 <DropdownMenuItem>
                   <Link href="https://mediprocomputers.com/Download/Index" className="w-full" target="_blank" rel="noopener noreferrer">Downloads</Link>
                 </DropdownMenuItem>
@@ -98,57 +92,10 @@ const Navbar = () => {
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
-          <div className="-mr-2 flex items-center sm:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-              aria-expanded={isOpen}
-            >
-              <span className="sr-only">Open main menu</span>
-              {!isOpen ? (
-                <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              ) : (
-                <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              )}
-            </button>
-          </div>
         </div>
       </div>
-      {isOpen && (
-        <div className="sm:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            <div className="flex flex-col">
-              <span className="px-3 py-2 rounded-md text-base font-medium text-gray-900">Solutions</span>
-              <Link href="/solutions/visual-medipro" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 ml-4">Visual MediPro</Link>
-              <Link href="/solutions/hm-sys" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 ml-4">HM-Sys</Link>
-              <Link href="/solutions/emedipro" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 ml-4">eMediPro</Link>
-            </div>
-            <div className="flex flex-col">
-              <span className="px-3 py-2 rounded-md text-base font-medium text-gray-900">Resources</span>
-              <Link href="/resources/datasheets" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 ml-4">Datasheets</Link>
-              <Link href="/resources/videos" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 ml-4">Videos</Link>
-              <Link href="/resources/downloads" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 ml-4">Downloads</Link>
-              <Link href="/resources/customers" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 ml-4">Customers</Link>
-            </div>
-            <Link href="/contact" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Contact</Link>
-            <div className="flex flex-col">
-              <span className="px-3 py-2 rounded-md text-base font-medium text-gray-900">About</span>
-              <Link href="/about/about-us" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 ml-4">About us</Link>
-              <Link href="/about/careers" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 ml-4">Careers</Link>
-              <Link href="/about/news" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 ml-4">News</Link>
-              <Link href="/about/team" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 ml-4">Team</Link>
-              <Link href="/about/event" className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 ml-4">Event</Link>
-            </div>
-          </div>
-        </div>
-      )}
     </nav>
   )
 }
 
 export default Navbar
-
